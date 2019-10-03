@@ -1,11 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   const [message, setMessage] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
-  const [url, setUrl] = useState('/api');
+  const [url, setUrl] = useState("/api");
+  const [urlDataBase, setUrlDataBase] = useState("/api/notes");
+  const [dataBase, setDataBase] = useState([{}]);
+  const [loading, setLoading] = useState(false);
+  const [urlSingleDestination, setUrlSingleDestination] = useState(
+    "/api/notes/London"
+  );
+  const [destination, setDestination] = useState([{}]);
 
   const fetchData = useCallback(() => {
     fetch(url)
@@ -18,10 +25,11 @@ function App() {
       .then(json => {
         setMessage(json.message);
         setIsFetching(false);
-      }).catch(e => {
+      })
+      .catch(e => {
         setMessage(`API call failed: ${e}`);
         setIsFetching(false);
-      })
+      });
   }, [url]);
 
   useEffect(() => {
@@ -29,42 +37,117 @@ function App() {
     fetchData();
   }, [fetchData]);
 
+  const fetchDataBase = useCallback(() => {
+    fetch(urlDataBase)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`status ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(json => {
+        setDataBase(json);
+        setIsFetching(false);
+
+        console.log(json);
+      })
+      .catch(e => {
+        // setMessage(`API call failed: ${e}`);
+        setLoading(false);
+      });
+  }, [urlDataBase]);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchDataBase();
+  }, [fetchDataBase]);
+
+  const fetchSingleDestination = useCallback(() => {
+    fetch(urlSingleDestination)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`status ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(json => {
+        setDestination(json);
+        setIsFetching(false);
+
+        console.log(json);
+      })
+      .catch(e => {
+        // setMessage(`API call failed: ${e}`);
+        setLoading(false);
+      });
+  }, [urlSingleDestination]);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchSingleDestination();
+  }, [fetchSingleDestination]);
+  console.log(destination);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        { process.env.NODE_ENV === 'production' ?
-            <p>
-              This is a production build from create-react-app.
-            </p>
-          : <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-        }
-        <p>{'« '}<strong>
-          {isFetching
-            ? 'Fetching message from API'
-            : message}
-        </strong>{' »'}</p>
-        <p><a
-          className="App-link"
-          href="https://github.com/mars/heroku-cra-node"
-        >
-          React + Node deployment on Heroku
-        </a></p>
-        <p><a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a></p>
+        {process.env.NODE_ENV === "production" ? (
+          <p>This is a production build from create-react-app.</p>
+        ) : (
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+        )}
+        <p>
+          {"« "}
+          <strong>{isFetching ? "Fetching message from API" : message}</strong>
+          {" »"}
+        </p>
+        <p>
+          <a
+            className="App-link"
+            href="https://github.com/mars/heroku-cra-node"
+          >
+            React + Node deployment on Heroku
+          </a>
+        </p>
+        <p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </p>
+        <div>
+          {loading ? (
+            <div>
+              {dataBase.map(data => (
+                <div>{data.naziv}</div>
+              ))}
+            </div>
+          ) : (
+            "loading"
+          )}
+        </div>
         <div>yooooooo</div>
+        <div>yooooooo</div>
+        <div>
+          {loading ? (
+            <div>
+              {destination.map(dest => (
+                <div>{dest.naziv}</div>
+              ))}
+            </div>
+          ) : (
+            "loading"
+          )}
+        </div>
       </header>
     </div>
   );
-
 }
 
 export default App;
