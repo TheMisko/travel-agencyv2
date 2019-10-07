@@ -1,5 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route } from "react-router-dom";
+import Destinacija from "./pages/destinacija";
+import Home from "./pages/home";
+import Pretrazi from "./pages/pretrazi";
+import Onama from "./pages/o_nama";
+import Destinacije from "./pages/destinacije";
+
 import "./App.css";
 
 function App() {
@@ -88,65 +94,15 @@ function App() {
   }, [fetchSingleDestination]);
   console.log(destination);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {process.env.NODE_ENV === "production" ? (
-          <p>This is a production build from create-react-app.</p>
-        ) : (
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-        )}
-        <p>
-          {"« "}
-          <strong>{isFetching ? "Fetching message from API" : message}</strong>
-          {" »"}
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://github.com/mars/heroku-cra-node"
-          >
-            React + Node deployment on Heroku
-          </a>
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-        <div>
-          {loading ? (
-            <div>
-              {dataBase.map(data => (
-                <div>{data.naziv}</div>
-              ))}
-            </div>
-          ) : (
-            "loading"
-          )}
-        </div>
-        <div>yooooooo</div>
-        <div>yooooooo</div>
-        <div>
-          {loading ? (
-            <div>
-              {destination.map(dest => (
-                <div>{dest.naziv}</div>
-              ))}
-            </div>
-          ) : (
-            "loading"
-          )}
-        </div>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/pretrazi" component={Pretrazi} />
+        <Route exact path="/o_nama" component={Onama} />
+        <Route exact path="/destinacija/:id" component={Destinacija} />
+        <Route exact path="/destinacije" component={Destinacije} />
+      </div>
+    </BrowserRouter>
   );
 }
 
