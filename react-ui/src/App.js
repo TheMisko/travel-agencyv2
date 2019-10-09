@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Pretrazi from "./pages/pretrazi";
 import Onama from "./pages/o_nama";
 import Destinacije from "./pages/destinacije";
+import Mapa from "./components/mapa";
 
 import "./App.css";
 
@@ -96,6 +97,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
+        <Route exact path="/mapa" component={Mapa} />
         <Route exact path="/" component={Home} />
         <Route exact path="/pretrazi" component={Pretrazi} />
         <Route exact path="/o_nama" component={Onama} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GMaps from "./g-maps";
+// import GMaps from "./g-maps";
 import ModalImage from "./modalImage";
 
 import PropTypes from "prop-types";
@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Tabs, Tab, Typography, Box, Button } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import Mapa from "./mapa";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -76,7 +77,7 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
   }
   console.log(imgSrc);
   console.log(openImage);
-
+  const [showMap, setShowMap] = useState(false);
   return (
     <>
       <div className={classes.root}>
@@ -87,10 +88,26 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
             onChange={handleChange}
             aria-label="nav tabs example"
           >
-            <LinkTab label="Informacije" href="/drafts" {...a11yProps(0)} />
-            <LinkTab label="Plan Ture" href="/trash" {...a11yProps(1)} />
-            <LinkTab label="Lokacija" href="/spam" {...a11yProps(2)} />
-            <LinkTab label="Galerija" href="/spam" {...a11yProps(2)} />
+            <LinkTab
+              onClick={() => setShowMap(false)}
+              label="Informacije"
+              {...a11yProps(0)}
+            />
+            <LinkTab
+              onClick={() => setShowMap(false)}
+              label="Plan Ture"
+              {...a11yProps(1)}
+            />
+            <LinkTab
+              onClick={() => setShowMap(true)}
+              label="Lokacija"
+              {...a11yProps(2)}
+            />
+            <LinkTab
+              onClick={() => setShowMap(false)}
+              label="Galerija"
+              {...a11yProps(2)}
+            />
           </Tabs>
         </AppBar>
         <div className="background-tab">
@@ -140,16 +157,9 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
                 ))}
               </div>
             </TabPanel>
-            <TabPanel value={value} index={2}>
-              <div className="tab-map">
-                <GMaps
-                  height={"60%"}
-                  width={"70%"}
-                  first={"40.444"}
-                  second={"-120.176"}
-                />
-              </div>
-            </TabPanel>
+            {showMap ? <Mapa /> : null}
+
+            <TabPanel value={value} index={2}></TabPanel>
             <TabPanel value={value} index={3}>
               <div className="tab-img">
                 {gallery.map(slike => (

@@ -33,11 +33,7 @@ const NewCard = ({ info }) => {
         </div>
         <div class="general">
           <h1>{info.naziv}</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut
-            pulvinar.
-          </p>
+          <p>{info.opis}</p>
           <span class="more">Mouse over the card for more info</span>
         </div>
       </div>

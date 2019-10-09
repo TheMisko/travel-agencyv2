@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/header";
 import Utisci from "../components/utisci";
-import GoogleMaps from "../components/google-maps";
+import Mapa from "../components/mapa";
+// import GoogleMaps from "../components/google-maps";
 import Footer from "../components/footer";
 import NewCard from "../components/new-card";
 
@@ -60,7 +61,7 @@ const Home = () => {
         </div>
         <div className="test-flex">
           {on ? (
-            data.map(dest => (
+            data.splice(0, 6).map(dest => (
               <Link
                 to={`/destinacija/${dest.naziv}`}
                 style={{ textDecoration: "none", color: "black" }}
@@ -72,10 +73,10 @@ const Home = () => {
             <h1>loading</h1>
           )}
         </div>
-        <Utisci />
-
-        <GoogleMaps width={"100%"} first={first} second={second} />
-
+        <div>
+          <Utisci />
+        </div>
+        <div>{/* <Mapa /> */}</div>
         <div className="background">
           <div className="footer-home">
             <Footer />
