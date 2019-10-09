@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const url = process.env.MONGODB_URI;
 
 mongoose
-  .connect(url || "http://localhost:5000/", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  .connect(
+    url ||
+      "mongodb+srv://Misko:herculesthegreek@astradb-tvrdh.mongodb.net/mern?retryWrites=true",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
   .then(result => {
     console.log("connected to MongoDB");
   })
