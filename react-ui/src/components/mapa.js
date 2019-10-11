@@ -3,7 +3,9 @@ import ReactMapGl from "react-map-gl";
 
 const Mapa = ({ height }) => {
   // const token = process.env.REACT_APP_MAPBOX_TOKEN;
-  const token = process.env.MAP_TOKEN;
+  // const token = process.env.MAP_TOKEN;
+  const token =
+    "pk.eyJ1IjoidGhlbWlza28iLCJhIjoiY2sxaHh5aTM5MDBwazNkbW5zcGZ2emJ1aCJ9.IxF9Bk89byq_yOvqK6sBDA";
   const [viewport, setViewport] = useState({
     latitude: 45.4211,
     longitude: -75.6903,
