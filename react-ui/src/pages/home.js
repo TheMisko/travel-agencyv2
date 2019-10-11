@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/header";
 import Utisci from "../components/utisci";
-import Mapa from "../components/mapa";
-// import GoogleMaps from "../components/google-maps";
+
+import KontaktInfo from "../components/kontaktInfo";
+
 import Footer from "../components/footer";
 import NewCard from "../components/new-card";
 
@@ -77,6 +78,10 @@ const Home = () => {
           <Utisci />
         </div>
         <div>{/* <Mapa /> */}</div>
+        <div className="kontakt-info-home">
+          <h1>Kontaktirajte Nas</h1>
+          <KontaktInfo />
+        </div>
         <div className="background">
           <div className="footer-home">
             <Footer />

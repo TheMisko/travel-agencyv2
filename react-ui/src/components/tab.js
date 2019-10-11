@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import GMaps from "./g-maps";
+
+import Mapa from "./mapa";
 import ModalImage from "./modalImage";
 
 import PropTypes from "prop-types";
@@ -7,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Tabs, Tab, Typography, Box, Button } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
-import Mapa from "./mapa";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -113,7 +114,7 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
         <div className="background-tab">
           <div className="tab-container">
             <TabPanel value={value} index={0}>
-              <div>
+              <div className="tab-info">
                 <h4>{info.info}</h4>
               </div>
               <div className="tab-naziv">
@@ -121,6 +122,12 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
               </div>
               <div className="tab-date">
                 <h3>Vreme Polaska:</h3> <h4>{info.date}</h4>
+              </div>
+              <div className="tab-date">
+                <h3>Lokacija Polaska:</h3> <h4>{info.departureLocation}</h4>
+              </div>
+              <div className="tab-date">
+                <h3>Povratna Lokacija:</h3> <h4>{info.returnLocation}</h4>
               </div>
               <div className="tab-uracunato">
                 <h3>Uracunato:</h3>
@@ -138,7 +145,7 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
                 <div className="test">
                   {info.nijeUracunato.map(excl => (
                     <div className="uracunato-icons">
-                      <ClearIcon color="primary" />
+                      <CancelIcon color="primary" />
                       <h4> {excl}</h4>
                     </div>
                   ))}
@@ -152,12 +159,12 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
                     <div>
                       <h2>Dan: {index + 1}</h2>
                     </div>{" "}
-                    <p>{tour}</p>
+                    <h4>{tour}</h4>
                   </div>
                 ))}
               </div>
             </TabPanel>
-            {showMap ? <Mapa /> : null}
+            <div className="map-container">{showMap ? <Mapa /> : null}</div>
 
             <TabPanel value={value} index={2}></TabPanel>
             <TabPanel value={value} index={3}>

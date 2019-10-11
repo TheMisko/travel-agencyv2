@@ -2,10 +2,7 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Card, Button, CardActionArea } from "@material-ui/core";
-
-
-
+import { Card, Button, CardActionArea, CardArea } from "@material-ui/core";
 
 import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
@@ -27,6 +24,7 @@ const DestinationHeader = ({ naziv, opis, slike, cena }) => {
       <div className="destinacija-cover">
         <img src={slike[0]} />
       </div>
+
       <div className="destinacija-card">
         <Card className={classes.card}>
           <div className="dest-header-info">
@@ -55,7 +53,9 @@ const DestinationHeader = ({ naziv, opis, slike, cena }) => {
             </CardActionArea>
             <CardActionArea>
               <div className="dest-header-icons">
-                <div><AccessTimeIcon fontSize="large" /></div>
+                <div>
+                  <AccessTimeIcon className="time" fontSize="large" />
+                </div>
                 <div className="center-icons">
                   {" "}
                   <h3>Broj dana: 5</h3>
@@ -66,7 +66,7 @@ const DestinationHeader = ({ naziv, opis, slike, cena }) => {
             <CardActionArea>
               <div className="dest-header-icons">
                 <div>
-                  <PeopleIcon fontSize="large" />
+                  <PeopleIcon className="people" fontSize="large" />
                 </div>
                 <div className="center-icons">
                   <h3>Broj putnika: 25</h3>

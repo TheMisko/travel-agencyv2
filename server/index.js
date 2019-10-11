@@ -9,8 +9,10 @@ const PORT = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 const Note = require("../models/dataBase");
 const nodemailer = require("nodemailer");
-const user = process.env.SENDGRID_USER;
-const pass = process.env.SENDGRID_PASSWORD;
+// const user = process.env.SENDGRID_USER;
+// const pass = process.env.SENDGRID_PASSWORD;
+const user= process.env.SENDGRID_US
+const pass = process.env.SENDGRID_PASS
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -52,7 +54,7 @@ if (!isDev && cluster.isMaster) {
     });
   });
 
-  app.get("/api/notes/:id", (request, response) => {
+  app.get("/api/ID/:ID", (request, response) => {
     Note.find({ ID: { $eq: request.params.ID } }).then(note => {
       response.json(note);
     });

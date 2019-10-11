@@ -1,9 +1,9 @@
 import React from "react";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
-import EmailIcon from "@material-ui/icons/Email";
+import Mapa from "../components/mapa";
+import KontaktInfo from "../components/kontaktInfo";
+import Card from "@material-ui/core/Card";
 
 const Onama = () => {
   return (
@@ -20,7 +20,7 @@ const Onama = () => {
             procedures for reliable supply chains.
           </h2>
         </div>
-        <img src="https://www.kyero.com/guides/wp-content/uploads/2019/01/Tossa-de-Mar-1-2400x1600.jpg" />
+        <img src="https://wallpaperstream.com/wallpapers/full/new-york-city/New-York-City-Night-Cityscape.jpg" />
       </div>
       <div className="oNama-opis">
         <h1>TRAVEL AGENCY STORY</h1>
@@ -30,17 +30,10 @@ const Onama = () => {
           since the 1500s, when an unknown printer took a galley of type and
           scrambled it to make a type specimen book. It has survived not only
           five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          remaining essentially unchanged.
         </h2>
       </div>
-      {/* <div className="oNama-slike">
-        <img src="https://d1ez3020z2uu9b.cloudfront.net/imagecache/blog-photos/8883_Fill_800_800.JPG" />
-        <img src="https://cdn.tourcms.com/a/62/2021/1/large.jpg" />
-        <img src="https://1sis3n2uzhvwypyas1efalg3-wpengine.netdna-ssl.com/wp-content/uploads/Palamos_Image-uai-1600x900.jpg" />
-      </div> */}
+
       <div className="nas">
         <h1>Nas Tim</h1>
       </div>
@@ -54,28 +47,13 @@ const Onama = () => {
         <h1>Kontakt Info</h1>
       </div>
 
-      <div className="oNama-kontakt">
-        <div className="oNama-kontakt-flex">
-          <div className="kontakt-info">
-            <div className="kontakt-icon">
-              <LocationOnIcon fontSize="large" />
-            </div>
-            <h2>Ulica Marka Markovica</h2>
-          </div>
-          <div className="kontakt-info">
-            <div className="kontakt-icon">
-              <PhoneIphoneIcon fontSize="large" />
-            </div>{" "}
-            <h2>069-788-788-7</h2>
-          </div>
-          <div className="kontakt-info">
-            <div className="kontakt-icon">
-              <EmailIcon fontSize="large" />
-            </div>{" "}
-            <h2>agencijaEmail@gmail.com</h2>
-          </div>
-        </div>
+      <KontaktInfo />
+      <div className="oNama-mapa">
+        <Card>
+          <Mapa />
+        </Card>
       </div>
+
       <Footer />
     </div>
   );

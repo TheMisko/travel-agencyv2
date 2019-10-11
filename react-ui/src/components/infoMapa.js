@@ -33,54 +33,58 @@ const useStyles = makeStyles({
     marginBottom: 12
   }
 });
+const KontaktInfo = () => {
+  const classes = useStyles();
+  return (
+    <>
+      <div className="kontakt-agenciju">
+        <h1>Kontaktirajte Agenciju</h1>
+      </div>
+      <div className="kontakt">
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="h5" component="h2">
+              Posetite Nas
+            </Typography>
 
-const classes = useStyles();
+            <Typography variant="body2" component="p">
+              Posetite Nasu agenciju ili nam posaljite E-mail ako imate neka
+              odredjena pitanja.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">
+              <LocationOnIcon color="primary" /> Ul. Marka Markovica
+            </Button>
+          </CardActions>
+          <CardActions>
+            <Button size="small">
+              <AccessTimeIcon color="primary" /> 08-21h
+            </Button>
+          </CardActions>
+          <CardActions>
+            <Button size="small">
+              <PhoneAndroidIcon color="primary" /> 069-788-788-7
+            </Button>
+          </CardActions>
+          <CardActions>
+            <a href="https://www.facebook.com">
+              <Button size="small">
+                <FacebookIcon color="primary" /> Agencija_FB
+              </Button>
+            </a>
+          </CardActions>
+          <CardActions>
+            <a href="https://www.instagram.com">
+              <Button size="small">
+                <InstagramIcon color="primary" /> Agencija_IG
+              </Button>
+            </a>
+          </CardActions>
+        </Card>
+      </div>
+    </>
+  );
+};
 
-<>
-  <div className="kontakt-agenciju">
-    <h1>Kontaktirajte Agenciju</h1>
-  </div>
-  <div className="kontakt">
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography variant="h5" component="h2">
-          Posetite Nas
-        </Typography>
-
-        <Typography variant="body2" component="p">
-          Posetite Nasu agenciju ili nam posaljite E-mail ako imate neka
-          odredjena pitanja.
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">
-          <LocationOnIcon color="primary" /> Ul. Marka Markovica
-        </Button>
-      </CardActions>
-      <CardActions>
-        <Button size="small">
-          <AccessTimeIcon color="primary" /> 08-21h
-        </Button>
-      </CardActions>
-      <CardActions>
-        <Button size="small">
-          <PhoneAndroidIcon color="primary" /> 069-788-788-7
-        </Button>
-      </CardActions>
-      <CardActions>
-        <a href="https://www.facebook.com">
-          <Button size="small">
-            <FacebookIcon color="primary" /> Agencija_FB
-          </Button>
-        </a>
-      </CardActions>
-      <CardActions>
-        <a href="https://www.instagram.com">
-          <Button size="small">
-            <InstagramIcon color="primary" /> Agencija_IG
-          </Button>
-        </a>
-      </CardActions>
-    </Card>
-  </div>
-</>;
+export default KontaktInfo;
