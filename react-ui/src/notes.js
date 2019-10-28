@@ -7,3 +7,6 @@
 // srediti rezoluciju slika gde god da je potrebno
 // linkovi za socijalne mreze link to default mreze ++
 // resiti error na serveru za mongo db
+// mail forma logika za popunjavanje
+// databaza koordinate
+// Logo

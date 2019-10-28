@@ -18,7 +18,9 @@ const Utisci = () => {
           <div className="round-img">
             <img src={slika} alt="Avatar" />
             <div className="star">
-              <StarIcon /> <StarIcon /> <StarIcon /> <StarIcon /> <StarIcon />
+              <StarIcon fontSize="large" /> <StarIcon fontSize="large" />{" "}
+              <StarIcon fontSize="large" /> <StarIcon fontSize="large" />{" "}
+              <StarIcon fontSize="large" />
             </div>
             <h2>
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

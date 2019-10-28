@@ -31,10 +31,10 @@ const Footer = () => {
         </div>
         <div className="footer-items2">
           <h1>Kontankt</h1>
-          <h3>Marka MArkovica</h3>
+          <h3>Marka Markovica</h3>
           <h3>Beograd, Srbija</h3>
           <h3>069-788-788-7</h3>
-          <h3>agencijaEmail@gmail.com</h3>
+          <h3>AgencijaEmail@gmail.com</h3>
         </div>
       </div>
     </div>

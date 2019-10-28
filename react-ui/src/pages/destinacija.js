@@ -53,7 +53,7 @@ const Destinacija = ({ match }) => {
           )}{" "}
         </div>
         <div className="mail-dest">
-          <ModalEmail naziv={destinacija.naziv} />
+          <ModalEmail info={destinacija} naziv={destinacija.naziv} />
         </div>
         <div className="background">
           <div className="footer-destinacija">

@@ -31,7 +31,7 @@ const NavBar = () => {
           </Link>
 
           <div className="nav-bar">
-            <Link to="/destinacije">
+            <Link to="/destinacije" style={{ textDecoration: "none", color: "white" }}>
               <div className="nav-btn">
                 <div class="btn btn-three">
                   <span>DESTINACIJE </span>
@@ -39,14 +39,14 @@ const NavBar = () => {
               </div>
             </Link>
 
-            <Link to="/o_nama">
+            <Link to="/o_nama" style={{ textDecoration: "none", color: "white" }}>
               <div className="nav-btn">
                 <div class="btn btn-three">
                   <span>O NAMA</span>
                 </div>
               </div>
             </Link>
-            <Link to="/pretrazi">
+            <Link to="/pretrazi" style={{ textDecoration: "none", color: "white" }}>
               <div className="nav-btn">
                 <div class="btn btn-three">
                   <span>PRETRAZI</span>

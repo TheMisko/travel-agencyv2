@@ -74,14 +74,14 @@ const Home = () => {
             <h1>loading</h1>
           )}
         </div>
-        <div>
+        <div className="utisci-home">
           <Utisci />
         </div>
         <div>{/* <Mapa /> */}</div>
-        <div className="kontakt-info-home">
-          <h1>Kontaktirajte Nas</h1>
+        {/* <div className="kontakt-info-home"> */}
+        {/* <h1>Kontaktirajte Nas</h1>
           <KontaktInfo />
-        </div>
+        </div> */}
         <div className="background">
           <div className="footer-home">
             <Footer />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../components/navBar";
 import NewCard from "../components/new-card";
@@ -29,7 +30,14 @@ const Destinacije = () => {
         <NavBar />
         <div className="new-card-destinacije">
           {on ? (
-            data.map(destinacije => <NewCard info={destinacije} />)
+            data.map(destinacije => (
+              <Link
+                to={`/destinacija/${destinacije.naziv}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <NewCard info={destinacije} />
+              </Link>
+            ))
           ) : (
             <div>loading </div>
           )}

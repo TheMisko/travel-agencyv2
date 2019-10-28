@@ -6,7 +6,6 @@ import axios from "axios";
 import Footer from "../components/footer";
 
 const Pretrazi = () => {
-  const [data, setData] = useState({});
   const [on, setOn] = useState(false);
   const [ID, setID] = useState("Letovanje");
 

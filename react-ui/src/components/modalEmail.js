@@ -2,10 +2,14 @@ import React from "react";
 import MailForm from "./mailForm";
 
 import { makeStyles } from "@material-ui/core/styles";
-import {Modal,Backdrop,Fade,Fab,Typography} from "@material-ui/core/";
-
-
-
+import {
+  Modal,
+  Backdrop,
+  Fade,
+  Fab,
+  Typography,
+  Button
+} from "@material-ui/core/";
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -21,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ModalEmail({ naziv }) {
+export default function ModalEmail({ naziv, info }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -35,15 +39,22 @@ export default function ModalEmail({ naziv }) {
 
   return (
     <div>
-      <Fab
+      {/* <Fab
         color="primary"
         variant="extended"
         aria-label="delete"
         onClick={handleOpen}
+      > */}{" "}
+      <Button
+        onClick={handleOpen}
+        color="primary"
+        variant="contained"
+        className={classes.button}
       >
-        <Typography variant="h4">REZERVISI</Typography>
-      </Fab>
-
+        <h3>REZERVISI</h3>
+      </Button>
+      {/* <Typography variant="h4">REZERVISI</Typography> */}
+      {/* </Fab> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -58,7 +69,7 @@ export default function ModalEmail({ naziv }) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <MailForm naziv={naziv} />
+            <MailForm naziv={naziv} info={info} />
           </div>
         </Fade>
       </Modal>

@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { Button, TextField } from "@material-ui/core";
 
-const MailForm = ({ naziv }) => {
+const MailForm = ({ naziv, info }) => {
   const [values, setValues] = useState({
     email: "",
     username: "",
@@ -32,12 +32,15 @@ const MailForm = ({ naziv }) => {
       })
       .then(setValues({ ...values, email: "", username: "", phoneNumber: "" }));
   };
-
+  console.log(info);
   return (
     <>
       <div>
         <form onSubmit={onSubmit}>
-          <h1>{naziv}</h1>
+          <div className="mail-info">
+            <h1>{naziv} </h1> <h4>{info.information.departureLocation}</h4>
+          </div>
+
           <TextField
             error={error}
             id="filled-full-width"

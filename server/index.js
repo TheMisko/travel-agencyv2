@@ -11,8 +11,8 @@ const Note = require("../models/dataBase");
 const nodemailer = require("nodemailer");
 // const user = process.env.SENDGRID_USER;
 // const pass = process.env.SENDGRID_PASSWORD;
-const user= process.env.SENDGRID_US
-const pass = process.env.SENDGRID_PASS
+const user = process.env.SENDGRID_US;
+const pass = process.env.SENDGRID_PASS;
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -81,11 +81,11 @@ if (!isDev && cluster.isMaster) {
 
       // send mail with defined transport object
       let info = await transporter.sendMail({
-        from: `${req.body.email}`, // sender address
-        to: "misko.199613@gmail.com", // list of receivers
+        from: "misko.199613@gmail.com", // sender address
+        to: `${req.body.email}`, // list of receivers
         // subject: `${req.body.username}`, // Subject line
-        text: `broj:${req.body.phoneNumber}`, // plain text body
-        html: `<b>${req.body.naziv}, Ime:${req.body.username}, E-mail: ${req.body.email}</b>` // html body
+        text: `broj:${req.body.naziv}`, // plain text body
+        html: `<b>${req.body.naziv}, Ime:${req.body.username}, E-mail: ${req.body.email}, broj: ${req.body.phoneNumber}</b>` // html body
       });
 
       console.log("Message sent: %s", info.messageId);
