@@ -10,6 +10,7 @@ const Destinacija = ({ match }) => {
   const [apiInfo, setApiInfo] = useState(match.params.id);
   const [on, setOn] = useState(false);
   const [destinacija, setDestinacija] = useState({});
+
   console.log(match);
   useEffect(() => {
     axios
@@ -46,6 +47,7 @@ const Destinacija = ({ match }) => {
                 tourPlan={destinacija.tourPlan}
                 gallery={destinacija.gallery}
                 naziv={destinacija.naziv}
+                koordinate={destinacija.koordinate}
               />
             </div>
           ) : (

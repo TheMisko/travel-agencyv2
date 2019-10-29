@@ -62,7 +62,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TabInfo({ info, tourPlan, gallery, naziv }) {
+export default function TabInfo({
+  info,
+  tourPlan,
+  gallery,
+  naziv,
+
+  koordinate
+}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [imgSrc, setImgSrc] = useState("");
@@ -164,7 +171,9 @@ export default function TabInfo({ info, tourPlan, gallery, naziv }) {
                 ))}
               </div>
             </TabPanel>
-            <div className="map-container">{showMap ? <Mapa /> : null}</div>
+            <div className="map-container">
+              {showMap ? <Mapa koordinate={koordinate} /> : null}
+            </div>
 
             <TabPanel value={value} index={2}></TabPanel>
             <TabPanel value={value} index={3}>
